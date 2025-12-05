@@ -170,7 +170,16 @@
             background: #fff;
             color: #ff00ff;
         }
+		
+		#gallery .card {
+			witdh: 350px;
+		}
 
+		#gallery .card img {
+			width: 100%;
+			border-radius: 15px;
+		}
+		
         /* Footer */
         footer {
             text-align:center;
@@ -203,6 +212,17 @@
             #about .card { padding: 20px; }
             #about h2 { font-size:2em; }
         }
+		
+		@media(max-width:768px){
+			#gallery .card {
+				width: 90%;     /* l'image prend presque toute la largeur */
+				max-width: 500px; 
+			}
+			#gallery .card img {
+				width: 100%;
+			}
+		}
+		
     </style>
 </head>
 <body>
