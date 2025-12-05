@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deyjmaël - DJ</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gabriola&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
     <style>
         /* Reset & base */
         * { margin:0; padding:0; box-sizing:border-box; }
@@ -12,16 +15,14 @@
         a { color:#ff00ff; text-decoration:none; transition:0.3s; }
         a:hover { color:#fff; }
 
-        /* Header vidéo */
+        /* Header */
         header {
             position: relative;
             height: 90vh;
             overflow: hidden;
-        }
-        header video {
-            width:100%;
-            height:100%;
-            object-fit:cover;
+            background-image: url('1.JPG');
+            background-size: cover;
+            background-position: center;
         }
         header .overlay {
             position:absolute;
@@ -37,19 +38,12 @@
             font-size:4em;
             color:#ff00ff;
             margin-bottom:20px;
-			font-family: 'Gabriola', serif;
+            font-family: 'Gabriola', serif;
         }
         header p {
             font-size:1.5em;
             margin-bottom:20px;
-			font-family: 'Gabriola', serif;
-        }
-        header .btn {
-            background:#ff00ff;
-            color:#fff;
-            padding:15px 30px;
-            border-radius:10px;
-            font-size:1.2em;
+            font-family: 'Gabriola', serif;
         }
 
         /* Menu hamburger */
@@ -64,6 +58,7 @@
             cursor:pointer;
             font-size:18px;
             font-weight:bold;
+            z-index:20;
         }
         .menu-content {
             display:none;
@@ -122,6 +117,60 @@
             margin-bottom:15px;
         }
 
+        /* Section À propos spécifique */
+        #about .card {
+            max-width: 500px;
+            width: 100%;
+            padding: 40px;
+            border-radius: 30px;
+        }
+
+        /* Section contact */
+        #contact {
+            padding: 60px 20px;
+            max-width: 800px;
+            margin: 50px auto;
+            text-align: center;
+        }
+        #contact h2 {
+            font-size: 2.5em;
+            color: #ff00ff;
+            margin-bottom: 20px;
+        }
+        #contact p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+        }
+        #contact form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        #contact input, #contact textarea {
+            padding: 15px;
+            border-radius: 10px;
+            border: none;
+            font-size: 1em;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        #contact button {
+            padding: 15px 30px;
+            border-radius: 10px;
+            border: none;
+            background: #ff00ff;
+            color: #fff;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: 0.3s;
+            margin: 0 auto;
+        }
+        #contact button:hover {
+            background: #fff;
+            color: #ff00ff;
+        }
+
         /* Footer */
         footer {
             text-align:center;
@@ -129,107 +178,48 @@
             background:#1a1a1a;
             color:#ff00ff;
         }
-		
-		.socials-footer {
-			display: flex;
-			justify-content: center;
-			gap: 30px;
-			padding: 20px 0;
-			background: #0c0c0c; /* même couleur que le body */
-		}
-
-		.socials-footer a {
-			color: #ff00ff;
-			font-size: 2em;
-			transition: transform 0.3s, color 0.3s;
-		}
-
-		.socials-footer a:hover {
-			color: #fff;
-			transform: scale(1.2);
-		}
+        .socials-footer {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px 0;
+            background: #0c0c0c;
+        }
+        .socials-footer a {
+            color: #ff00ff;
+            font-size: 2em;
+            transition: transform 0.3s, color 0.3s;
+        }
+        .socials-footer a:hover {
+            color: #fff;
+            transform: scale(1.2);
+        }
 
         /* Responsive */
         @media(max-width:768px){
             header h1 { font-size:3em; }
             header p { font-size:1.2em; }
             .cards { flex-direction:column; align-items:center; }
+            #about .card { padding: 20px; }
+            #about h2 { font-size:2em; }
         }
-		
-		#about .card {
-			width: 500px;   
-			width : 100%;
-			padding: 40px;    
-			border-radius: 30px;
-		}
-		
-		#contact {
-			padding: 60px 20px;
-			max-width: 800px;
-			margin: 50px auto;
-			text-align: center;
-		}
-
-		#contact h2 {
-			font-size: 2.5em;
-			color: #ff00ff;
-			margin-bottom: 20px;
-		}
-
-		#contact p {
-			font-size: 1.2em;
-			margin-bottom: 40px;
-		}
-
-		#contact form {
-			display: flex;
-			flex-direction: column;
-			gap: 20px;
-		}
-
-		#contact input, #contact textarea {
-			padding: 15px;
-			border-radius: 10px;
-			border: none;
-			font-size: 1em;
-			width: 100%;
-			max-width: 500px;
-			margin: 0 auto;
-		}
-
-		#contact button {
-			padding: 15px 30px;
-			border-radius: 10px;
-			border: none;
-			background: #ff00ff;
-			color: #fff;
-			font-size: 1.2em;
-			cursor: pointer;
-			transition: 0.3s;
-			margin: 0 auto;
-		}
-
-		#contact button:hover {
-			background: #fff;
-			color: #ff00ff;
-		}
-
-		<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-
     </style>
 </head>
 <body>
 
-    <header style="background-image: url('1.JPG'); 
-               background-size: cover; 
-               background-position: center; 
-               height: 90vh; 
-               position: relative;">
-		<div class="overlay" style="background: rgba(0,0,0,0.5); display:flex; justify-content:center; align-items:center; flex-direction:column; text-align:center; width:100%; height:100%;">
-			<h1>DeyJMaël</h1>
-			<p>𝓜𝓾𝓼𝓲𝓬 𝓲𝓼 𝓶𝔂 𝓵𝓲𝓯𝓮</p>
-		</div>
-	</header>
+    <!-- Header -->
+    <header>
+        <div class="overlay">
+            <h1>DeyJMaël</h1>
+            <p>𝓜𝓾𝓼𝓲𝓬 𝓲𝓼 𝓶𝔂 𝓵𝓲𝓯𝓮</p>
+        </div>
+        <button class="menu-btn" onclick="document.querySelector('.menu-content').classList.toggle('show')">Menu</button>
+        <div class="menu-content">
+            <a href="#events">Événements</a>
+            <a href="#about">À propos</a>
+            <a href="#gallery">Galerie</a>
+        </div>
+    </header>
 
     <!-- Événements -->
     <section id="events">
@@ -239,7 +229,7 @@
                 <h3>Marché de noël</h3>
                 <p>13 Décembre 2025 - Reichsoffen</p>
             </div>
-			<div class="card">
+            <div class="card">
                 <h3>Winter-Party</h3>
                 <p>7 Février 2026 - Niederbronn</p>
             </div>
@@ -247,10 +237,11 @@
                 <h3>Nief'air</h3>
                 <p>24 Mai 2026 - Niefern</p>
             </div>
-			<div class="card">
+            <div class="card">
                 <h3>Beach soccer</h3>
-                <p>27 Juin 2026- Gundershoffen</p>
+                <p>27 Juin 2026 - Gundershoffen</p>
             </div>
+        </div>
     </section>
 
     <!-- À propos -->
@@ -258,8 +249,8 @@
         <h2>Qui suis-je ?</h2>
         <div class="cards">
             <div class="card">
-                <p>Je suis DeyJMaël, j’ai 16 ans et je suis DJ  en Alsace. Depuis deux ans,, je mixe régulièrement et j’ai déjà eu la chance de jouer devant 5 000 personnes lors d’un festival, ce qui m’a permis de développer une vraie capacité de scène et un bon contact avec le public.</p>
-				<p>Je joue principalement de la techno, de l'EDM et du Ballerman.</p>
+                <p>Je suis DeyJMaël, j’ai 16 ans et je suis DJ en Alsace. Depuis deux ans, je mixe régulièrement et j’ai déjà eu la chance de jouer devant 5 000 personnes lors d’un festival, ce qui m’a permis de développer une vraie capacité de scène et un bon contact avec le public.</p>
+                <p>Je joue principalement de la techno, de l'EDM et du Ballerman.</p>
             </div>
         </div>
     </section>
@@ -268,29 +259,27 @@
     <section id="gallery">
         <h2>Galerie</h2>
         <div class="cards">
-			<div class="card">
-            <img src="1.JPG" alt="1">
-			</div>
-			<div class="card">
-            <img src="2.JPG" alt="2">
-			</div>
-			<div class="card">
-            <img src="IMG/3.jpg" alt="3">
-			</div>
+            <div class="card">
+                <img src="1.JPG" alt="1">
+            </div>
+            <div class="card">
+                <img src="2.JPG" alt="2">
+            </div>
+            <div class="card">
+                <img src="IMG/3.jpg" alt="3">
+            </div>
         </div>
     </section>
-	
-	<div class="socials-footer">
-		<a href="https://www.facebook.com/profile.php?id=61581764894223&rdid=iL90UkaLdjRO2snA&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19UZUgFFmP%2F#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-		<a href="https://www.instagram.com/deyjmael/# target="_blank"><i class="fab fa-instagram"></i></a>
-		<a href="https://www.tiktok.com/@deyjmael" target="_blank"><i class="fab fa-tiktok"></i></a>
-		<a href="https://www.youtube.com/@deyjmael" target="_blank"><i class="fab fa-youtube"></i></a>
-		<a href="https://www.snapchat.com/@deyjmael" target="_blank"><i class="fab fa-snapchat"></i></a>
-	</div>
 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <!-- Footer / réseaux sociaux -->
+    <div class="socials-footer">
+        <a href="https://www.facebook.com/profile.php?id=61581764894223" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/deyjmael/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@deyjmael" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.youtube.com/@deyjmael" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.snapchat.com/@deyjmael" target="_blank"><i class="fab fa-snapchat"></i></a>
+    </div>
 
-    <!-- Footer -->
     <footer>
         &copy; 2025 DeyJMaël - Tous droits réservés
     </footer>
