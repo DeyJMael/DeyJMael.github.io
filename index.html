@@ -115,6 +115,7 @@
             width:100%;
             border-radius:15px;
             margin-bottom:15px;
+            cursor: pointer; /* indique que l'image est cliquable */
         }
 
         /* Section À propos spécifique */
@@ -179,7 +180,38 @@
 			width: 100%;
 			border-radius: 15px;
 		}
-		
+
+        /* Lightbox avec fond flou */
+        .lightbox {
+            position: fixed;
+            top:0; left:0;
+            width:100vw; height:100vh;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(10px);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            visibility:hidden;
+            opacity:0;
+            transition: 0.3s ease;
+            z-index:9999;
+        }
+        .lightbox.show {
+            visibility: visible;
+            opacity: 1;
+        }
+        .lightbox img {
+            max-width:90%;
+            max-height:90%;
+            border-radius:20px;
+            box-shadow:0 0 30px rgba(255,0,255,0.5);
+            animation: pop 0.3s ease;
+        }
+        @keyframes pop {
+            from { transform: scale(0.7); opacity:0; }
+            to { transform: scale(1); opacity:1; }
+        }
+
         /* Footer */
         footer {
             text-align:center;
@@ -211,17 +243,13 @@
             .cards { flex-direction:column; align-items:center; }
             #about .card { padding: 20px; }
             #about h2 { font-size:2em; }
+
+            #gallery .card {
+                width: 90%;
+                max-width: 500px; 
+            }
+            #gallery .card img { width: 100%; }
         }
-		
-		@media(max-width:768px){
-			#gallery .card {
-				width: 90%;     /* l'image prend presque toute la largeur */
-				max-width: 500px; 
-			}
-			#gallery .card img {
-				width: 100%;
-			}
-		}
 		
     </style>
 </head>
@@ -291,6 +319,11 @@
         </div>
     </section>
 
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <img id="lightbox-img" src="" alt="">
+    </div>
+
     <!-- Footer / réseaux sociaux -->
     <div class="socials-footer">
         <a href="https://www.facebook.com/profile.php?id=61581764894223" target="_blank"><i class="fab fa-facebook-f"></i></a>
@@ -303,6 +336,23 @@
     <footer>
         &copy; 2025 DeyJMaël - Tous droits réservés
     </footer>
+
+    <!-- Script Lightbox -->
+    <script>
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+
+        document.querySelectorAll("#gallery img").forEach(img => {
+            img.addEventListener("click", () => {
+                lightboxImg.src = img.src;
+                lightbox.classList.add("show");
+            });
+        });
+
+        lightbox.addEventListener("click", () => {
+            lightbox.classList.remove("show");
+        });
+    </script>
 
 </body>
 </html>
