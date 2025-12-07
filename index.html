@@ -260,7 +260,23 @@
 			transform: scale(1.2);
 		}
 
-		
+		.legal-link {
+			text-align: center;
+			background: #0c0c0c;
+			padding: 10px 0 20px;
+		}
+	
+		.legal-link a {
+			font-size: 0.8em;
+			color: #555;
+			text-decoration: none;
+			transition: 0.3s;
+		}
+
+		.legal-link a:hover {
+			color: #ff00ff;
+		}
+
     </style>
 </head>
 <body>
@@ -354,7 +370,10 @@
         &copy; 2025 DeyJMaël - Tous droits réservés
     </footer>
 
-    <!-- Script Lightbox -->
+	<div class="legal-link">
+		<a href="mentions-legales.html">Mentions légales</a>
+	</div>
+
     <script>
         const lightbox = document.getElementById("lightbox");
         const lightboxImg = document.getElementById("lightbox-img");
